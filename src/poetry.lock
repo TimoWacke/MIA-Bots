@@ -63,6 +63,17 @@ scikit-learn = "*"
 
 [[package]]
 category = "main"
+description = "Pretty-print tabular data"
+name = "tabulate"
+optional = false
+python-versions = "*"
+version = "0.8.7"
+
+[package.extras]
+widechars = ["wcwidth"]
+
+[[package]]
+category = "main"
 description = "threadpoolctl"
 name = "threadpoolctl"
 optional = false
@@ -70,8 +81,7 @@ python-versions = ">=3.5"
 version = "2.1.0"
 
 [metadata]
-content-hash = "f66b86c4baef2b2a205c4853499fb0d3fb88da4708e200917ab2a6d191d739db"
-lock-version = "1.0"
+content-hash = "bc14110b5ce56adebee07ec937c9f293ba1c34e80bdfab985674823433f66094"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -158,6 +168,10 @@ scipy = [
 ]
 sklearn = [
     {file = "sklearn-0.0.tar.gz", hash = "sha256:e23001573aa194b834122d2b9562459bf5ae494a2d59ca6b8aa22c85a44c0e31"},
+]
+tabulate = [
+    {file = "tabulate-0.8.7-py3-none-any.whl", hash = "sha256:ac64cb76d53b1231d364babcd72abbb16855adac7de6665122f97b593f1eb2ba"},
+    {file = "tabulate-0.8.7.tar.gz", hash = "sha256:db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"},
 ]
 threadpoolctl = [
     {file = "threadpoolctl-2.1.0-py3-none-any.whl", hash = "sha256:38b74ca20ff3bb42caca8b00055111d74159ee95c4370882bbff2b93d24da725"},
