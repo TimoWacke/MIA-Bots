@@ -17,7 +17,7 @@ class MaexchenHighLevelBotAPI(object):
         :param buffer_size: Size of the Buffer.
         """
         self.max_message_timeout_count = max_message_timeout_count
-        self._udp_client = MaexchenUdpClient()
+        self._udp_client = MaexchenUdpClient(server_ip=server_ip, server_port=server_port, buffer_size=buffer_size)
 
         # Set or generate the bot name
         if bot_name:
