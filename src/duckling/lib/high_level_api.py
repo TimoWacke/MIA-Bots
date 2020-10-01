@@ -48,7 +48,7 @@ class MaexchenHighLevelBotAPI(object):
         if msg.startswith("REJECTED"):
             raise MaexchenRegisterError("--- Connection rejected")
         elif not msg.startswith("REGISTERED"):
-            raise MaexchenRegisterError(f"--- Connection not accepted. Got: '{message}'")
+            raise MaexchenRegisterError(f"--- Connection not accepted. Got: '{msg}'")
 
         self._stop_main = False
         self._main_thread = threading.Thread(target=self._main_loop, args=())
