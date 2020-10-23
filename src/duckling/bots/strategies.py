@@ -166,7 +166,7 @@ class BinomialDistributionMLStrategy(AbstractMLStrategy):
         else:
             n = 21 - prev_rank
             top_by = binomial(n, self.p)
-            return tools.rank_to_value(prev_rank + top_by)
+            return tools.rank_to_value(min(prev_rank + top_by, 20))
 
 
 class WeightedDistributionMLStrategy(AbstractMLStrategy):
