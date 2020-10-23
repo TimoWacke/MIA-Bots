@@ -41,7 +41,7 @@ poetry shell
 ```
 
 ## Technical Infrastructure
-The game runs on a remote server (IP: `35.159.50.117`, port: `9000`). 
+The game runs on a remote server (IP: `server.flova.de`, port: `9000`). 
 The players communicate with the server using text-based protocol over UDP (using UTF-8 encoded strings)
 We wrapped this protocol to a high level python api.
 
