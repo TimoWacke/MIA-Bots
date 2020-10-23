@@ -83,8 +83,6 @@ class AbstractMLStrategy(AbstractStrategy):
         if len(prev_turns) > 1:
             classifier_data['val_pre'] = prev_turns[-2][1]
 
-        print(classifier_data)
-
         accuse = self._detector_ie.inference(classifier_data)
         return accuse
 
