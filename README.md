@@ -6,9 +6,6 @@
 <h3 align="center">Lecture2Gether</h3>
   <p align="center">
     Bots for the game "Mäxchen" aka Mia.
-    <br />
-    <br />
-    <a href="https://lecture2gether.eu">View Demo</a> <!--TODO DEMO VERLINKEN-->
   </p>
 </p>
 
