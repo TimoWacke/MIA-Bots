@@ -7,7 +7,7 @@ from duckling.lib.udp import MaexchenUdpClient
 
 
 class MaexchenHighLevelBotAPI(object):
-    def __init__(self, bot_name=None, server_ip="35.159.50.117", server_port=9000, buffer_size=1024, max_message_timeout_count=5):
+    def __init__(self, bot_name=None, server_ip="server.flova.de", server_port=9000, buffer_size=1024, max_message_timeout_count=5):
         """
         Creates a HighLevelBotAPI object.
 

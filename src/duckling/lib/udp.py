@@ -3,7 +3,7 @@ import socket
 
 class MaexchenUdpClient:
 
-    def __init__(self, server_ip="35.159.50.117", server_port=9000, buffer_size=1024):
+    def __init__(self, server_ip="server.flova.de", server_port=9000, buffer_size=1024):
         self.__server_port = server_port
         self.__server_ip = server_ip
         self.__buffer_size = buffer_size
