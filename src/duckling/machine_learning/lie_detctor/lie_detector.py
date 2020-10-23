@@ -62,7 +62,6 @@ class InferenceEngine(object):
             # Exec the network
             data = [rank, prob, prob_above, rank_pre, prob_pre, prob_above_pre]
             output = self._policy.predict([data])[0]
-            print(output)
             if output[0] < 0.5:
                 return True
             else:
@@ -94,9 +93,7 @@ class InferenceEngine(object):
 
             # Exec the network
             data = [rank, prob, prob_above, rank_pre, prob_pre, prob_above_pre, deveriation, position]
-            print(data)
             output = self._policy.predict([data])[0]
-            print(output)
             if output[0] < 0.5:
                 return True
             else:
