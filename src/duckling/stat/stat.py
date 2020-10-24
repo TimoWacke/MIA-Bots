@@ -7,13 +7,13 @@ import threading
 from tabulate import tabulate
 from duckling.lib.udp import MaexchenUdpClient
 
-
 class MaexchenStat(object):
-    def __init__(self, bot_name="stat_bot", ):
+    def __init__(self, bot_name="", show=True, tablefmt=None):
         """
         Creates a Scoreboard in the terminal.
 
         :param bot_name: The name of the Bot.
+        :param show: Show the highscore in the terminal.
         """
         self._udp_client = MaexchenUdpClient()
 
@@ -24,11 +24,16 @@ class MaexchenStat(object):
             self._bot_name = \
                 ''.join(random.choice(string.ascii_lowercase) for _ in range(6))
 
+        self._highscore_table = "No highscore yet!"
+
+        self._show = show
+        self._tablefmt = tablefmt
+
         # Placeholders
         self._stats = []
 
     def start(self):
-        """ 
+        """
         Start the game for your bot (non blocking).
         It joins the game on the next possibility.
         """
@@ -54,6 +59,12 @@ class MaexchenStat(object):
         print("--- Unregistered")
         self._udp_client.close()
 
+    def get_highscore_table(self):
+        """
+        Returns the highscore table
+        """
+        return self._highscore_table
+
     def _main_loop(self):
         """
         Runs the main loop which listens for messages from the server.
@@ -63,14 +74,15 @@ class MaexchenStat(object):
             message = self._udp_client.await_message()
             # Join the round
             if message.startswith("SCORE"):
-                os.system('clear')
-                print("\nScoreboard:")
+                if self._show:
+                    os.system('clear')
+                    print("\nScoreboard:")
                 bot_dict = {}
                 bots = message.split(";")[1]
                 bots = bots.split(",")
                 for bot in bots:
                     player, score = bot.split(":")
-                    bot_dict[player] = int(score) 
+                    bot_dict[player] = int(score)
 
                 self._stats.append(bot_dict)
 
@@ -91,7 +103,10 @@ class MaexchenStat(object):
                     table["Bot Name"].append(bot)
                     table["Score"].append('{:.08f}'.format(diff_dict[bot]))
 
-                print(tabulate(table))
+                self._highscore_table = tabulate(table, tablefmt=self._tablefmt)
+
+                if self._show:
+                    print(self._highscore_table)
 
 
 class MaexchenRegisterError(Exception):

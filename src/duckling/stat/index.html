@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="h-100" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script>
+            var myVar = setInterval(getScoreboard, 500);
+
+            function getScoreboard() {
+                var xmlhttp=new XMLHttpRequest();
+                xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    document.getElementById("highscore_canvas").innerHTML = this.responseText.replace('<table>', '<table class="table">');
+                }
+                }
+                xmlhttp.open("GET","/api/highscore",true);
+                xmlhttp.send();
+            }
+        </script>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="mt-5">Scoreboard</h1>
+                <div class="lead" id="highscore_canvas"></div>
+            </div>
+        </div>
+    </body>
+</html>
