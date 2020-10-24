@@ -48,7 +48,7 @@ We wrapped this protocol to a high level python api.
 We also introduced an object oriented hierarchy which allowed us to combine multiple strategies and abstract the server communication on multiple levels. 
 Allowing methods like our machine learning based lie detection.
 
-We also added some tools (TODO LINK) to listen to the game traffic, parse it and save them in a structured format. 
+We also added some tools to listen to the game traffic, parse it and save them in a structured format. 
 This resulted in huge datasets that we used for our machine learning approach.
 
 ## Bots
