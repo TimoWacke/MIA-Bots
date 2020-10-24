@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62751653/94692773-3b6ac300-0333-11eb-97f3-e245963fea74.jpg" alt="Logo" width="240" height="240">
-<h3 align="center">Lecture2Gether</h3>
+<h3 align="center">MIA Bots</h3>
   <p align="center">
     Bots for the game "Mäxchen" aka Mia.
   </p>
