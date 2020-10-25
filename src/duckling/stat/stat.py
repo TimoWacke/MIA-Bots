@@ -69,7 +69,7 @@ class MaexchenStat(object):
         """
         Runs the main loop which listens for messages from the server.
         """
-        num_steps = 200
+        num_steps = 500
         while True:
             message = self._udp_client.await_message()
             # Join the round
@@ -93,7 +93,7 @@ class MaexchenStat(object):
                     temp_num_steps = len(self._stats)
 
                 for player in self._stats[-1].keys():
-                    diff_dict[player] = (self._stats[-1][player] - self._stats[-temp_num_steps].get(player, 0)) / temp_num_steps
+                    diff_dict[player] = (self._stats[-1][player] - self._stats[-temp_num_steps].get(player, 0))
 
                 diff_dict = {k: v for k, v in sorted(diff_dict.items(), key=lambda item: item[1], reverse=True)}
 
@@ -102,9 +102,9 @@ class MaexchenStat(object):
                 for bot in diff_dict:
                     if diff_dict[bot] > 0:
                         table["Bot Name"].append(bot)
-                        table["Score"].append(float(diff_dict[bot]))
+                        table["Score"].append(diff_dict[bot])
 
-                self._highscore_table = tabulate(table, tablefmt=self._tablefmt, floatfmt=".4f", )
+                self._highscore_table = tabulate(table, tablefmt=self._tablefmt, floatfmt=".4f", headers=['Bot', f'Score (last {num_steps} Rounds)'])
 
                 if self._show:
                     print(self._highscore_table)
