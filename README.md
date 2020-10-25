@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62751653/94692773-3b6ac300-0333-11eb-97f3-e245963fea74.jpg" alt="Logo" width="240" height="240">
-<h3 align="center">Lecture2Gether</h3>
+<h3 align="center">MIA Bots</h3>
   <p align="center">
     Bots for the game "Mäxchen" aka Mia.
   </p>
@@ -48,7 +48,7 @@ We wrapped this protocol to a high level python api.
 We also introduced an object oriented hierarchy which allowed us to combine multiple strategies and abstract the server communication on multiple levels. 
 Allowing methods like our machine learning based lie detection.
 
-We also added some tools (TODO LINK) to listen to the game traffic, parse it and save them in a structured format. 
+We also added some tools to listen to the game traffic, parse it and save them in a structured format. 
 This resulted in huge datasets that we used for our machine learning approach.
 
 ## Bots
