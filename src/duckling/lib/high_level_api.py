@@ -121,7 +121,6 @@ class MaexchenHighLevelBotAPI(object):
         self._main_thread.join()
         self._stop_main = False
         self._udp_client.send_message("UNREGISTER")
-        _ = self._udp_client.await_commands("UNREGISTERED")
         print("--- Unregistered")
         self._udp_client.close()
 
