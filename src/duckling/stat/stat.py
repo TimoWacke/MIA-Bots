@@ -31,6 +31,7 @@ class MaexchenStat(object):
 
         # Placeholders
         self._stats = []
+        self.stop_main = False
 
     def start(self):
         """
@@ -46,16 +47,19 @@ class MaexchenStat(object):
         elif not msg.startswith("REGISTERED"):
             raise MaexchenRegisterError(f"--- Connection not accepted. Got: '{msg}'")
 
-        self._main_loop()
+        try:
+            self._main_loop()
+        except KeyboardInterrupt:
+            self.close()
+            exit(0)
 
     def close(self):
         """
         Closes the Bots connection.
         """
-        print("--- Closing")
-        self._stop_main = False
+        self.stop_main = False
+        print("--- Closing", self._bot_name)
         self._udp_client.send_message("UNREGISTER")
-        _ = self._udp_client.await_commands("UNREGISTERED")
         print("--- Unregistered")
         self._udp_client.close()
 
@@ -70,7 +74,7 @@ class MaexchenStat(object):
         Runs the main loop which listens for messages from the server.
         """
         num_steps = 500
-        while True:
+        while not self.stop_main:
             message = self._udp_client.await_message()
             # Join the round
             if message.startswith("SCORE"):
