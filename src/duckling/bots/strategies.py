@@ -104,12 +104,12 @@ class custom(AbstractStrategy):
 
     def announce_later_turn(self, prev_turns, our_roll):
         if len(prev_turns) == 1:
-            rank = tools.value_to_rank((6, 4))
+            rank = max(tools.value_to_rank((6, 4)), tools.value_to_rank(our_roll))
         else:            
             prev_roll = prev_turns[-1][1]
             rank = max(tools.value_to_rank(prev_roll) + 1, tools.value_to_rank(our_roll))
-        if rank == 20:
-            return tools.rank_to_value(20)
+        if rank == 20 or rank == tools.value_to_rank(our_roll):
+            return tools.rank_to_value(rank)
         return tools.rank_to_value(random.choice([rank, rank + 1]))
 
 class RandomStrategy(AbstractStrategy):
