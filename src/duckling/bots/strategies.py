@@ -97,10 +97,7 @@ class MLStrategyFromOldStrategy(AbstractMLStrategy):
     def announce(self, prev_turns, our_roll):
         return self.old_strategy.announce(prev_turns, our_roll)
 
-class custom(AbstractStrategy):
-    def should_accuse_non_trivially(self, prev_turns):
-        return False
-
+class custom(AbstractStrategy):    
     def announce_first_turn(self, our_roll):
         rank = max(tools.value_to_rank((6, 3)), tools.value_to_rank(our_roll))
         return tools.rank_to_value(rank)
