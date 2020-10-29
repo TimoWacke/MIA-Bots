@@ -24,7 +24,7 @@ After you installed Poetry simply type the following commands to clone and insta
 
 ```
 git clone https://github.com/Flova/MIA-Bots.git
-cd Team8/src
+cd MIA-Bots/src
 poetry install
 ```
 
