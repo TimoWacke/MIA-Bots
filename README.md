@@ -23,7 +23,7 @@ You need the [Poetry](https://python-poetry.org/) package manager to install and
 After you installed Poetry simply type the following commands to clone and install our code:
 
 ```
-git clone https://github.com/Digital-Innovation-Challenge/Team8.git
+git clone https://github.com/Flova/MIA-Bots.git
 cd Team8/src
 poetry install
 ```
