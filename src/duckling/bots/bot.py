@@ -1,6 +1,6 @@
 import argparse
 from duckling.bots.strategy_bot import StrategyBot
-from duckling.bots.strategies import RandomStrategy, AggressiveStrategy, ConservativeStrategy, BinomialDistributionMLStrategy, WeightedDistributionMLStrategy, MLStrategyFromOldStrategy
+from duckling.bots.strategies import *
 
 """
 Wellcome to the duckling bot launcher!
@@ -44,5 +44,11 @@ if __name__ == "__main__":
             bot = StrategyBot(args.name, MLStrategyFromOldStrategy(ConservativeStrategy(), model))
         else:
             bot = StrategyBot(args.name, ConservativeStrategy())
+    elif args.type == "custom":
+        if args.ml:
+            bot = StrategyBot(args.name, MLStrategyFromOldStrategy(custom(), model))
+        else:
+            bot = StrategyBot(args.name, custom())
+
 
     bot.run()

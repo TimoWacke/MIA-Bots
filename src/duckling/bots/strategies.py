@@ -97,6 +97,23 @@ class MLStrategyFromOldStrategy(AbstractMLStrategy):
     def announce(self, prev_turns, our_roll):
         return self.old_strategy.announce(prev_turns, our_roll)
 
+class custom(AbstractStrategy):
+    def should_accuse_non_trivially(self, prev_turns):
+        return False
+
+    def announce_first_turn(self, our_roll):
+        rank = max(tools.value_to_rank((6, 3)), tools.value_to_rank(our_roll))
+        return tools.rank_to_value(rank)
+
+    def announce_later_turn(self, prev_turns, our_roll):
+        if len(prev_turns) == 1:
+            rank = tools.value_to_rank((6, 4))
+        else:            
+            prev_roll = prev_turns[-1][1]
+            rank = max(tools.value_to_rank(prev_roll) + 1, tools.value_to_rank(our_roll))
+        if rank == 20:
+            return tools.rank_to_value(20)
+        return tools.rank_to_value(random.choice([rank, rank + 1])
 
 class RandomStrategy(AbstractStrategy):
 
